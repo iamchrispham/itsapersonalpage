@@ -1,0 +1,40 @@
+{
+  "name": "itsapersonalpage",
+  "version": "1.0.1",
+  "main": "./server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "build": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iamchrispham/itsapersonalpage.git"
+  },
+  "keywords": [
+    "personal",
+    "website",
+    "business",
+    "card"
+  ],
+  "author": "Christopher Pham",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "diff": "^4.0.1",
+    "lodash": "^4.17.15",
+    "morgan": "^1.9.1",
+    "nodemon": "^1.19.1",
+    "webpack-cli": "^3.3.7",
+    "webpack": "^4.20.0"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mysql": "^2.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
