@@ -1,15 +1,17 @@
 import React from 'react';
+import Icons from '../react-icons/icons.jsx';
+import MenuBar from './menubar.jsx';
 
 const Header = (props) =>
   <div className="header-content" id="header-content">
     <div className="col1">
-      1
+      Christopher Pham
     </div>
     <div className="col2">
-      2
+      <MenuBar />
     </div>
     <div className="col3">
-      3
+      <Icons />
     </div>
   </div>
 
