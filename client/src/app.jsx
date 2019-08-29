@@ -14,8 +14,10 @@ class App extends React.Component {
          -> render data in snippets
         
       */
+      showModalEmail: false,
     }
   }
+
 
   render() {
     return (
