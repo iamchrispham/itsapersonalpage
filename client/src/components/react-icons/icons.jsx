@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaLinkedin, FaBattleNet, FaGithub, FaFacebook } from 'react-icons/fa';
 import { TiMail } from 'react-icons/ti';
-import { render } from 'react-dom';
 import ModalEmailForm from '../modals/email.jsx';
 
 class Icons extends React.Component {
@@ -10,24 +9,20 @@ class Icons extends React.Component {
     this.state = {
       showEmailForm: false,
     }
-    this.toggleEmailModal = this.toggleEmailModal.bind(this);
-    this.testPlug = this.testPlug.bind(this);
+    this.toggleOffEmailClick = this.toggleOffEmailClick.bind(this);
+    this.toggleOnEmailClick = this.toggleOnEmailClick.bind(this);
   }
 
-  toggleEmailModal() {
+  toggleOffEmailClick() {
     this.setState({
-      showEmailForm: !this.state.showEmailForm,
-    }, console.log('showEmailForm:', this.state.showEmailForm))
+      showEmailForm: false,
+    }, () => console.log('toggleOff post setstate:', this.state.showEmailForm))
   }
 
-  testPlug () {
-    return (
-      <div>
-        <ModalEmailForm showEmailForm={this.showEmailForm} toggleEmailModal={this.toggleEmailModal}>
-          Funk
-        </ModalEmailForm>
-      </div>
-    )
+  toggleOnEmailClick() {
+    this.setState({
+      showEmailForm: true,
+    }, () => console.log('toggleOn post setstate:', this.state.showEmailForm))
   }
 
   render() {
@@ -54,10 +49,10 @@ class Icons extends React.Component {
           </a>
         </div>
         <div className="icon-item-email">
-          <a className="active" onClick={this.toggleEmailModal}>
-            <TiMail />
-          {this.state.showEmailForm ? this.testPlug() : console.log('brah')}
-          </a>
+            <a className="active" onClick={this.toggleOnEmailClick}>
+              <TiMail />
+            </a>
+          <ModalEmailForm showEmailForm={this.state.showEmailForm} toggleOffEmailClick={this.toggleOffEmailClick} />
         </div>
       </div>
     )

@@ -1,30 +1,54 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {createPortal, render} from 'react-dom';
+import InnerEmail from '../modals/inneremail.jsx';
 
-const modalEmailRoot = document.getElementById('modal-email');
-const Test = () => (
-  <div>
-    Test Func!
-  </div>
-);
 
-class ModalEmailForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.elem = document.createElement('div');
-  }
+const ModalEmailForm = (props) =>
+<Fragment>
+  {props.showEmailForm ? createPortal(<InnerEmail children={props} />, document.querySelector("#modal-email")) : null}
+</Fragment> 
 
-  componentDidMount() {
-    modalEmailRoot.appendChild(this.elem);
-  }
-
-  componentWillUnmount() {
-    modalEmailRoot.removeChild(this.elem);
-  }
-
-  render() {
-    return createPortal(this.props.children, document.querySelector("#modal-email"));
-  }
-}
 
 export default ModalEmailForm;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const modalEmailRoot = document.getElementById('modal-email');
+
+// class ModalEmailForm extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     // this.elem = document.createElement('div');
+//   }
+
+//   // componentDidMount() {
+//   //   modalEmailRoot.appendChild(this.elem);
+//   // }
+
+//   // componentWillUnmount() {
+//   //   modalEmailRoot.removeChild(this.elem);
+//   // }
+
+//   render() {
+//     return createPortal(<InnerEmail children={this.props} />, document.querySelector("#modal-email"));
+//     // {this.showEmailForm ? createPortal(<InnerEmail children={this.props} />, document.querySelector("#model-email")) : null}
+//   }
+// }
