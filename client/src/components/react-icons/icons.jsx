@@ -11,18 +11,23 @@ class Icons extends React.Component {
     }
     this.toggleOffEmailClick = this.toggleOffEmailClick.bind(this);
     this.toggleOnEmailClick = this.toggleOnEmailClick.bind(this);
+    this.onKeyDown = this.onKeyDown.bind(this);
+  }
+
+  onKeyDown ({keyCode}) {
+    return keyCode === 27 && this.toggleOffEmailClick();
   }
 
   toggleOffEmailClick() {
     this.setState({
       showEmailForm: false,
-    }, () => console.log('toggleOff post setstate:', this.state.showEmailForm))
+    })
   }
 
   toggleOnEmailClick() {
     this.setState({
       showEmailForm: true,
-    }, () => console.log('toggleOn post setstate:', this.state.showEmailForm))
+    })
   }
 
   render() {
@@ -52,7 +57,7 @@ class Icons extends React.Component {
             <a className="active" onClick={this.toggleOnEmailClick}>
               <TiMail />
             </a>
-          <ModalEmailForm showEmailForm={this.state.showEmailForm} toggleOffEmailClick={this.toggleOffEmailClick} />
+          <ModalEmailForm showEmailForm={this.state.showEmailForm} toggleOffEmailClick={this.toggleOffEmailClick} onKeyDown={this.onKeyDown} />
         </div>
       </div>
     )

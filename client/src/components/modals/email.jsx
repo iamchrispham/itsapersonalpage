@@ -1,12 +1,25 @@
-import React, {Fragment} from 'react';
-import {createPortal, render} from 'react-dom';
+import React, { Fragment } from 'react';
+import { createPortal, render } from 'react-dom';
 import InnerEmail from '../modals/inneremail.jsx';
 
+class ModalEmailForm extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <Fragment>
+        {this.props.showEmailForm ? createPortal(<InnerEmail children={this.props} role={'dialog'} />, document.querySelector("#modal-email")) : null}
+      </Fragment>
+    )
+  }
+}
 
-const ModalEmailForm = (props) =>
-<Fragment>
-  {props.showEmailForm ? createPortal(<InnerEmail children={props} />, document.querySelector("#modal-email")) : null}
-</Fragment> 
+
+// const ModalEmailForm = (props) =>
+//   <Fragment>
+//     {props.showEmailForm ? createPortal(<InnerEmail children={props} role={'dialog'} />, document.querySelector("#modal-email")) : null}
+//   </Fragment>
 
 
 export default ModalEmailForm;
