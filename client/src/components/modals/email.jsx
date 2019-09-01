@@ -16,11 +16,6 @@ class ModalEmailForm extends React.Component {
 }
 
 
-// const ModalEmailForm = (props) =>
-//   <Fragment>
-//     {props.showEmailForm ? createPortal(<InnerEmail children={props} role={'dialog'} />, document.querySelector("#modal-email")) : null}
-//   </Fragment>
-
 
 export default ModalEmailForm;
 
