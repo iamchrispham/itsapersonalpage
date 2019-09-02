@@ -4,7 +4,8 @@
   "main": "./server/index.js",
   "scripts": {
     "start": "nodemon server/index.js",
-    "build": "webpack -d --watch"
+    "build": "webpack -d --watch",
+    "sass": "sass --watch ./client/dist"
   },
   "repository": {
     "type": "git",

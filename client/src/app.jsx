@@ -27,22 +27,22 @@ function App() {
     }
   })
   
-  const renderMobileHeader = () => {
+  const renderMobile = () => {
     return (
       <MobileHeader />
     )
   }
 
-  const renderHeader = () => {
+  const renderWeb = () => {
     return (
       <Header />
     )
   }
   
   return <div className="main">
-    {dimensions.width < 669 ? console.log(`Rendered at ${dimensions.width} x /${dimensions.height}`) : null}
-    {dimensions.width < 669 ?  renderMobileHeader() : renderHeader() }
-    <Body />
+    {/* {dimensions.width < 669 ? console.log(`Rendered at ${dimensions.width} x /${dimensions.height}`) : null} */}
+    {dimensions.width < 669 ?  renderMobile() : renderWeb() }
+    <Body width={dimensions.width} height={dimensions.height}/>
     <Footer />
   </div>
 }

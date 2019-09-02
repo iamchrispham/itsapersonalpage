@@ -168,10 +168,28 @@ html {
 }
 
 .body-content {
-  padding: 5px 0px 5px 0px;
-  color: "#000";
+  padding: 25px 0px 5px 0px;
+  color: #000;
   /* background-color: cornsilk; */
   text-align: center;
+  min-width: 960px;
+  letter-spacing: 0.03em;
+  opacity: 0;
+  transition: all 0.2s ease;
+}
+
+.body-content-mobile {
+  min-width: 334.5px;
+  max-width: 420px;
+}
+
+.body-content-transition-in {
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+.body-content-transition-out {
+  opacity: 0;
 }
 
 .footer-content {
