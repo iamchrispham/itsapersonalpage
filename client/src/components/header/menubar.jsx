@@ -10,7 +10,7 @@ const MenuBar = (props) => {
             </a>
         </li>
         <li>
-          <a href="">
+          <a href="" style={{ minWidth: 171.2 + 'px'}}>
             About this CodeNinja
           </a>
         </li>

@@ -9,7 +9,7 @@ class ModalEmailForm extends React.Component {
   render() {
     return (
       <Fragment>
-        {this.props.showEmailForm ? createPortal(<InnerEmail children={this.props} role={'dialog'} />, document.querySelector("#modal-email")) : null}
+        {this.props.showEmailForm ? createPortal(<InnerEmail children={this.props} role={'dialog'} />, document.querySelector("#modal")) : null}
       </Fragment>
     )
   }

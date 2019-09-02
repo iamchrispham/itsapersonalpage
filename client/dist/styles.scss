@@ -8,12 +8,12 @@ html {
   box-sizing: inherit;
 }
 
-
 .main {
   font-family: "nimbus-sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   text-align: center;
   width: 100%;
   -webkit-font-smoothing: antialiased;
+  min-width: 960px;
 }
 
 .header-content {
@@ -39,6 +39,7 @@ html {
   color: #000;
   font-size: 21px;
   flex: 0.4;
+  min-width: 231px;
 }
 
 .header-content .col2 {
@@ -68,7 +69,7 @@ html {
 .header-content .menubar li a {
   color: #000;
   text-decoration: none;
-  transition: .2s color ease-in-out;
+  transition: 0.2s color ease-in-out;
   display: inline-block;
   padding: 0;
 }
@@ -78,15 +79,15 @@ html {
 }
 
 .header-content .menubar li a:after {
-  content: '';
+  content: "";
   height: 1px;
   top: 53px;
   width: 0px;
   display: block;
   background-color: #000;
-  -webkit-transition: .2s width ease-in-out;
-  -o-transition: .2s width ease-in-out;
-  transition: .2s width ease-in-out;
+  -webkit-transition: 0.2s width ease-in-out;
+  -o-transition: 0.2s width ease-in-out;
+  transition: 0.2s width ease-in-out;
 }
 
 .header-content .menubar li a:hover:after {
@@ -110,7 +111,7 @@ html {
 .header-content .icon-item a {
   color: gray;
   cursor: pointer;
-  transition: .33s color ease-in-out;
+  transition: 0.33s color ease-in-out;
 }
 
 .header-content .icon-item a:hover {
@@ -124,7 +125,7 @@ html {
 .header-content .icon-item-email a {
   color: gray;
   cursor: pointer;
-  transition: .33s color ease-in-out;
+  transition: 0.33s color ease-in-out;
 }
 
 .header-content .icon-item-email a:hover {
@@ -133,7 +134,7 @@ html {
 
 .body-content {
   padding: 5px 0px 5px 0px;
-  color: '#000';
+  color: "#000";
   /* background-color: cornsilk; */
   text-align: center;
 }
@@ -156,8 +157,17 @@ html {
   height: 100%;
   z-index: 10;
   transform: translateZ(0);
+  transition: 0.249s background-color ease;
+  background-color: rgba(#FFF, 0.15);
+}
+.modal-cover-transition-in {
   background-color: rgba(#000, 0.15);
 }
+
+.modal-cover-transition-out {
+  background-color: rgba(#FFF, 0.15);
+}
+
 
 .c-modal {
   position: fixed;
@@ -166,20 +176,31 @@ html {
   width: 100%;
   height: 100%;
   padding: 2.5em 1.5em 1.5em 1.5em;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  transition: all ease 1s;
 
-  @media screen and (min-width: 500px) {
+  @media screen and (min-width: 660px) {
     left: 50%;
     top: 50%;
-    transition: all ease 1s;
-    opacity: 1;
+    transition: opacity ease 0.249s;
+    opacity: 0;
     transform: translate(-50%, -50%);
     max-width: 600px;
     max-height: 660px;
+  }
+}
+
+.modal-transition-in {
+  @media screen and (min-width: 660px) {
+    opacity: 1; 
+  }
+}
+
+.modal-transition-out {
+  @media screen and (min-width: 660px) {
+    opacity: 0; 
   }
 }
 
@@ -187,7 +208,7 @@ html {
   position: absolute;
   top: 0;
   right: 0;
-  padding: .5em;
+  padding: 0.5em;
   line-height: 1;
   background: #f6f6f7;
   border: 0;
@@ -204,9 +225,8 @@ html {
   stroke-width: 3;
 }
 
-
 .c-modal__body {
-  padding-top: .25em;
+  padding-top: 0.25em;
 }
 
 .u-hide-visually {
@@ -229,11 +249,12 @@ html {
   padding: 20px 0 20px 0px;
 }
 
-.contact-input > input, textarea {
+.contact-input > input,
+textarea {
   padding-left: 10px;
   width: 82%;
   height: 50px;
-  font-size: 16px;  
+  font-size: 16px;
 }
 
 .contact-input > textarea {

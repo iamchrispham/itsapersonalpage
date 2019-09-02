@@ -3,29 +3,6 @@ import Header from './components/header/index.jsx';
 import Body from './components/body/index.jsx';
 import Footer from './components/footer/index.jsx';
 
-// class App extends React.Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {
-//     }
-//   }
-
-
-//   render() {
-//     return (
-//       <div className="main">
-//         {/* 
-
-//         */}
-// <Header />
-// <Body />
-// <Footer />
-//       </div>
-//     )
-//   }
-// }
-
-
 function App() {
   const [dimensions, setDimensions] = useState({
     height: window.innerHeight,

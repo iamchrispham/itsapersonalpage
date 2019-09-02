@@ -13,6 +13,7 @@ html {
   text-align: center;
   width: 100%;
   -webkit-font-smoothing: antialiased;
+  min-width: 960px;
 }
 
 .header-content {
@@ -38,6 +39,7 @@ html {
   color: #000;
   font-size: 21px;
   flex: 0.4;
+  min-width: 231px;
 }
 
 .header-content .col2 {
@@ -154,7 +156,16 @@ html {
   height: 100%;
   z-index: 10;
   transform: translateZ(0);
+  transition: 0.249s background-color ease;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.modal-cover-transition-in {
   background-color: rgba(0, 0, 0, 0.15);
+}
+
+.modal-cover-transition-out {
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 .c-modal {
@@ -164,21 +175,32 @@ html {
   width: 100%;
   height: 100%;
   padding: 2.5em 1.5em 1.5em 1.5em;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.1);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  transition: all ease 1s;
 }
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 660px) {
   .c-modal {
     left: 50%;
     top: 50%;
-    transition: all ease 1s;
-    opacity: 1;
+    transition: opacity ease 0.249s;
+    opacity: 0;
     transform: translate(-50%, -50%);
     max-width: 600px;
     max-height: 660px;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .modal-transition-in {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 660px) {
+  .modal-transition-out {
+    opacity: 0;
   }
 }
 
@@ -227,7 +249,8 @@ html {
   padding: 20px 0 20px 0px;
 }
 
-.contact-input > input, textarea {
+.contact-input > input,
+textarea {
   padding-left: 10px;
   width: 82%;
   height: 50px;

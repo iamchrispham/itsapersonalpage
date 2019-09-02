@@ -17,11 +17,26 @@ class InnerEmail extends React.Component {
     this.handleInputEmail = this.handleInputEmail.bind(this);
     this.handleInputMessage = this.handleInputMessage.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.transitionIn = this.transitionIn.bind(this);
+    this.transitionOut = this.transitionOut.bind(this);
+  }
+
+  transitionIn() {
+    document.querySelector('.c-modal').classList.toggle('modal-transition-in');
+    document.querySelector('.c-modal-cover').classList.toggle('modal-cover-transition-in')
+  }
+
+  transitionOut() {
+    document.querySelector('.c-modal').classList.toggle('modal-transition-out')
+    document.querySelector('.c-modal-cover').classList.toggle('modal-cover-transition-out')
   }
 
   handleClick(e) {
     if (this.node.current === e.target) {
-      this.props.children.toggleOffEmailClick();
+      this.transitionOut();
+      setTimeout(() => {
+        this.props.children.toggleOffEmailClick()
+      }, 401);
     }
     return;
   }
@@ -72,9 +87,14 @@ class InnerEmail extends React.Component {
       if (!validateEmail(this.state.email)) {
         console.log('invalid email:', this.state.email);
       } else {
+        // post to database on successful info validation
         console.log('fields filled: ', this.state)
       }
     }
+  }
+
+  componentDidMount() {
+    setTimeout(()=> this.transitionIn(), 249);
   }
 
   render() {
@@ -103,7 +123,7 @@ class InnerEmail extends React.Component {
                   <input value={this.state.email} onChange={this.handleInputEmail} placeholder="E-mail"></input>
                 </div>
                 <div className="contact-input">
-                  <textarea value={this.state.message} onChange={this.handleInputMessage} placeholder="Send me a message!" style={{height: 180 + 'px'}}></textarea>
+                  <textarea value={this.state.message} onChange={this.handleInputMessage} placeholder="Send me a message!" style={{ height: 180 + 'px' }}></textarea>
                 </div>
                 <div className="contact-input">
                   <button>
@@ -121,7 +141,7 @@ class InnerEmail extends React.Component {
 }
 
 const validateEmail = (email) => {
-    return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) ? true : false;
+  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email) ? true : false;
 }
 
 export default InnerEmail;
