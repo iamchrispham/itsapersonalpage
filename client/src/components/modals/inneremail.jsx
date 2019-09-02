@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React from 'react';
 // overlay CSS mostly complete, just needs modal backdrop click to exit, otherwise ESC or clicking on the 'X' button will exit out.
 
 class InnerEmail extends React.Component {
@@ -16,6 +16,7 @@ class InnerEmail extends React.Component {
     this.handleInputLastName = this.handleInputLastName.bind(this);
     this.handleInputEmail = this.handleInputEmail.bind(this);
     this.handleInputMessage = this.handleInputMessage.bind(this);
+    this.handleButtonClose = this.handleButtonClose.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.transitionIn = this.transitionIn.bind(this);
     this.transitionOut = this.transitionOut.bind(this);
@@ -73,6 +74,13 @@ class InnerEmail extends React.Component {
     }
   }
 
+  handleButtonClose() {
+    this.transitionOut();
+    setTimeout(() => {
+      this.props.children.toggleOffEmailClick()
+    }, 401);
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     if (this.state.firstName === '') {
@@ -89,19 +97,20 @@ class InnerEmail extends React.Component {
       } else {
         // post to database on successful info validation
         console.log('fields filled: ', this.state)
+        this.handleButtonClose();
       }
     }
   }
 
   componentDidMount() {
-    setTimeout(()=> this.transitionIn(), 249);
+    setTimeout(() => this.transitionIn(), 249);
   }
 
   render() {
     return (
       <aside aria-modal="true" tabIndex="-1" className="c-modal-cover" onKeyDown={this.props.children.onKeyDown} ref={this.node} onClick={this.handleClick}>
         <div className="c-modal" >
-          <button className="c-modal__close" onClick={this.props.children.toggleOffEmailClick}>
+          <button className="c-modal__close" onClick={this.handleButtonClose}>
             <span className="u-hide-visually">
               Close
         </span>
@@ -110,9 +119,12 @@ class InnerEmail extends React.Component {
             </svg>
           </button>
           <div className="c-modal__body">
-            So, you wanna get in contact?
-        <form onSubmit={this.handleSubmit}>
+
+            <form onSubmit={this.handleSubmit}>
               <fieldset className="contact" style={{ border: 1 + 'px' }}>
+                <div className="contact-input" style={{ paddingTop: 0 + 'px' }}>
+                  So, you wanna get in contact?
+                </div>
                 <div className="contact-input">
                   <input value={this.state.firstName} className="firstName" onChange={this.handleInputFirstName} placeholder="First Name"></input>
                 </div>
@@ -126,8 +138,8 @@ class InnerEmail extends React.Component {
                   <textarea value={this.state.message} onChange={this.handleInputMessage} placeholder="Send me a message!" style={{ height: 180 + 'px' }}></textarea>
                 </div>
                 <div className="contact-input">
-                  <button>
-                    BE A BALLER
+                  <button className="modalEmailSubmitBtn">
+                    Submit
                 </button>
 
                 </div>

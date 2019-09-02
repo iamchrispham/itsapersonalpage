@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { createPortal, render } from 'react-dom';
+import { createPortal } from 'react-dom';
 import InnerEmail from '../modals/inneremail.jsx';
 
 class ModalEmailForm extends React.Component {

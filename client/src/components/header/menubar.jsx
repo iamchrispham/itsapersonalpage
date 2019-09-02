@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 
 const MenuBar = (props) => {
   return (
@@ -10,7 +11,7 @@ const MenuBar = (props) => {
             </a>
         </li>
         <li>
-          <a href="" style={{ minWidth: 171.2 + 'px'}}>
+          <a style={{ minWidth: 171.2 + 'px'}} onClick={() => console.log('bodystuff')}>
             About this CodeNinja
           </a>
         </li>
