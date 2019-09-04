@@ -1,12 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, Fragment } from 'react';
 import { FaListUl } from 'react-icons/fa';
 
 function SideBar() {
-  
+  const [toggled, setToggle] = useState(false);
+  useEffect(() => {
+    
+  })
+  const handleClick = () => {
+    setToggle({
+      toggled: !toggled,
+    })
+  }
+
   return (
     <div className="sidebar">
-      <span className="sidebar-icon" >
-      <FaListUl onClick={() => console.log('Yo, you clicked on the sidebar icon!')} style={{border: 2 + "px", color: "#000"}}/>
+      <span>
+      <FaListUl className="sidebar-icon" onClick={() => handleClick()} />
+      {/* { toggled ? console.log('true') : console.log('false') } */}
       </span>
     </div>
   )

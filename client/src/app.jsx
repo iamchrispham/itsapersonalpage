@@ -40,7 +40,6 @@ function App() {
   }
   
   return <div className="main">
-    {/* {dimensions.width < 669 ? console.log(`Rendered at ${dimensions.width} x /${dimensions.height}`) : null} */}
     {dimensions.width < 669 ?  renderMobile() : renderWeb() }
     <Body width={dimensions.width} height={dimensions.height}/>
     <Footer />

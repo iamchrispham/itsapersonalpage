@@ -190,6 +190,14 @@ html {
   opacity: 0;
 }
 
+.body-content .about-content-title {
+  text-align: center;
+}
+
+.body-content .about-content-body {
+  text-align: left;
+}
+
 .footer-content {
   /* background-color: thistle; */
   margin-top: 0.5px;

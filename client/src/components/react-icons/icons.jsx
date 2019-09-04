@@ -44,7 +44,7 @@ class Icons extends React.Component {
           </a>
         </div>
         <div className="icon-item 3">
-          <a href="" className="active">
+          <a href="http://www.github.com/iamchrispham" className="active" target="_blank">
             <FaGithub />
           </a>
         </div>
