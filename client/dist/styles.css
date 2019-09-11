@@ -56,11 +56,11 @@ body {
 }
 
 .header-content .col2 {
-  flex: 1.55;
+  flex: 1.45;
 }
 
 .header-content .col3 {
-  flex: 0.45;
+  flex: 0.35;
 }
 
 .header-content .menubar {
@@ -69,6 +69,7 @@ body {
 
 .header-content .menubar ul {
   display: flex;
+  margin-left: -45px;
   list-style: none;
 }
 
@@ -116,7 +117,7 @@ body {
   justify-content: center;
   flex: 1;
   flex-direction: row;
-  width: 200px;
+  width: 240px;
 }
 
 .header-content .icon-item {

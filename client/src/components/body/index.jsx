@@ -1,6 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const Body = (props) => {
+  const [loading, setLoading] = useState(true);
+  useEffect(()=> {
+    if (loading) {
+      setLoading(false);
+    }
+  })
+
   const checkWidth = () => {
     if (props.width < 669) {
       document.querySelector('.body-content').classList.add('body-content-mobile');
@@ -9,13 +16,10 @@ const Body = (props) => {
     }
   }
 
-  const pseudoAsync = () => {
-    setTimeout(() => checkWidth(), 500);
-  }
   return (
     <div className="body-container">
       <div className="body-content">
-        {document.querySelector('.body-content') ? checkWidth() : pseudoAsync()}
+        {loading ? null : checkWidth()}
       </div>
     </div>
   )
