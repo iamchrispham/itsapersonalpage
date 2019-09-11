@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import About from '../body/about.jsx';
 import Applications from '../body/applications.jsx';
 import CodeBlog from '../body/codeblog.jsx';
+import Repos from '../body/repos.jsx';
 
 
 const MenuBar = (props) => {
@@ -24,6 +25,11 @@ const MenuBar = (props) => {
 
   function renderCodeBlog() {
     render(<CodeBlog />, document.querySelector('.body-content'))
+    document.querySelector('.body-content').classList.toggle('body-content-transition-in');
+  }
+
+  function renderRepos() {
+    render(<Repos />, document.querySelector('.body-content'))
     document.querySelector('.body-content').classList.toggle('body-content-transition-in');
   }
 
@@ -57,9 +63,19 @@ const MenuBar = (props) => {
           <a onClick={
             () => {
               toggleTransition();
-              setTimeout(() => renderCodeBlog(), 300)
+              setTimeout(() => renderCodeBlog(), 300);
             }}>
             Code Blog
+          </a>
+        </li>
+        <li>
+          <a onClick={
+            () => {
+              toggleTransition();
+              setTimeout(() => renderRepos(), 300);
+            }
+          }>
+            Repos
           </a>
         </li>
       </ul>
