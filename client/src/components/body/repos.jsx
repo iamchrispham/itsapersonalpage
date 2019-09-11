@@ -16,9 +16,11 @@ const Repos = () => {
         .catch((err) => console.log('Error fetching data:', err.stack));
     }
   })
+
   /*
     TODOS:  Refactor database side to pull persisted data
             Loading PNG
+            CSS for rendering Repos
   */
   const renderRepos = () => {
 
