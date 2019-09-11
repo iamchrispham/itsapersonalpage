@@ -4,18 +4,27 @@ import axios from 'axios';
 // React Hooks -- attempt an axios request to load data
 
 const Repos = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [repos, setRepos] = useState(null);
+  const [error, setError] = useState(null);
+  let source = axios.CancelToken.source();
+
   useEffect(() => {
-    if (!loading) {
-      axios.get('/api/repos')
-        .then(({data}) => {
+    if (loading && !repos) {
+      axios.get('/api/repos', { cancelToken: source.token })
+        .then(({ data }) => {
           setRepos(data);
-          setLoading(true);
+          setLoading(false);
         })
-        .catch((err) => console.log('Error fetching data:', err.stack));
+        .catch(({message}) => console.log(message));
     }
-  })
+
+    return () => {
+      if (loading){
+        source.cancel("(=^.^=)");
+      }
+    }
+  }, [])
 
   /*
     TODOS:  Refactor database side to pull persisted data
@@ -24,18 +33,18 @@ const Repos = () => {
   */
   const renderRepos = () => {
 
-    return(
-    <div>
-      {repos.map(({name, html_url}, i) => {
-        return (
-          <div className={`repo-item ${i}`} key={i}>
-            <a href={html_url} >
-            {name}
-            </a>
-          </div>
-        )
-      })}
-    </div>
+    return (
+      <div>
+        {repos.map(({ name, html_url }, i) => {
+          return (
+            <div className={`repo-item ${i}`} key={i}>
+              <a href={html_url} >
+                {name}
+              </a>
+            </div>
+          )
+        })}
+      </div>
     )
   }
 
@@ -45,7 +54,7 @@ const Repos = () => {
         Repos and shit...
       </span>
       <div className="repos-container">
-        {loading ? renderRepos() : null}
+        {!loading ? renderRepos() : null}
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 
 const Body = (props) => {
   const checkWidth = () => {
@@ -13,8 +13,10 @@ const Body = (props) => {
     setTimeout(() => checkWidth(), 500);
   }
   return (
-    <div className="body-content">
-      {document.querySelector('.body-content') ? checkWidth() : pseudoAsync()}
+    <div className="body-container">
+      <div className="body-content">
+        {document.querySelector('.body-content') ? checkWidth() : pseudoAsync()}
+      </div>
     </div>
   )
 }

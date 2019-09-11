@@ -7,13 +7,9 @@ const router = require('./router.js');
 const app = express();
 
 app.use(parser.json());
-app.use(parser.urlencoded({extended: true}));
+app.use(parser.urlencoded({ extended: true }));
 app.use(morgan('dev'));
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
-
-// app.get('/api', (req, res) => {
-//   res.status(200).send('Hi!')
-// })
 
 app.use('/api', router);
 
