@@ -7,7 +7,9 @@ html {
 *:after {
   box-sizing: inherit;
 }
-
+body {
+  overflow-y: scroll;
+}
 .main {
   font-family: "nimbus-sans", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   text-align: center;
@@ -52,7 +54,7 @@ html {
 }
 
 .header-content .col2 {
-  flex: 1.45;
+  flex: 1.55;
 }
 
 .header-content .col3 {
@@ -112,7 +114,7 @@ html {
   justify-content: center;
   flex: 1;
   flex-direction: row;
-  min-width: 160px;
+  width: 200px;
 }
 
 .header-content .icon-item {
@@ -193,6 +195,8 @@ html {
 .body-content-mobile {
   min-width: 334.5px;
   max-width: 420px;
+  display: block;
+  padding-left: 50px;
 }
 
 .body-content-transition-in {

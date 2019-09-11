@@ -6,7 +6,7 @@ import axios from 'axios';
 const Repos = () => {
   const [loading, setLoading] = useState(true);
   const [repos, setRepos] = useState(null);
-  const [error, setError] = useState(null);
+
   let source = axios.CancelToken.source();
 
   useEffect(() => {
