@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import {createPortal} from 'react-dom';
+import LoadingAnimation from '../modals/loading.jsx';
 import axios from 'axios';
 
 // React Hooks -- attempt an axios request to load data
@@ -54,7 +56,7 @@ const Repos = () => {
         Repos and shit...
       </span>
       <div className="repos-container">
-        {!loading ? renderRepos() : null}
+        {!loading ? renderRepos() : createPortal(<LoadingAnimation loading={loading}/>, document.querySelector('#modal'))}
       </div>
     </div>
   )
