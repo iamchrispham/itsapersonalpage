@@ -13,8 +13,6 @@ const LoadingAnimation = (props) => {
     }
   })
 
-
-  // TODO: Loading PNG here
   return (
   <aside aria-modal="true" tabIndex="-1" className="c-modal-cover">
     <div className="c-modal-loading">

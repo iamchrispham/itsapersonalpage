@@ -13,7 +13,12 @@ const Repos = () => {
 
   useEffect(() => {
     if (loading && !repos) {
-      axios.get('/api/repos', { cancelToken: source.token })
+      axios.get('/api/repos', { 
+        headers: { 
+          'content-type': 'application/x-www-form-urlencoded' 
+        }, 
+        cancelToken: source.token,
+      })
         .then(({ data }) => {
           setRepos(data);
           setLoading(false);
@@ -23,14 +28,13 @@ const Repos = () => {
 
     return () => {
       if (loading){
-        source.cancel("(=^.^=)");
+        source.cancel("(=^.^=)"); 
       }
     }
   }, [])
 
   /*
     TODOS:  Refactor database side to pull persisted data
-            Loading PNG
             CSS for rendering Repos
   */
   const renderRepos = () => {
