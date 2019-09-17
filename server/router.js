@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getAllRepos, getReposByName } = require('./controllers.js')
+const { getAllRepos, getReposByName, retroRoute } = require('./controllers.js')
 
 
 router
@@ -9,5 +9,9 @@ router
 router
   .route('/reposByName')
   .get(getReposByName)
+
+router
+  .route('/retro')
+  .post(retroRoute)
 
 module.exports = router;

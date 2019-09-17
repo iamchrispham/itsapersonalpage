@@ -27,7 +27,14 @@ const getReposByName = (req, res) => {
   res.status(200).send(`getReposByName: ${req.body}`)
 }
 
+const retroRoute = (req, res) => {
+  var { postData } = req.body;
+  console.log(`Route: retroRoute: ${postData}`)
+  res.status(201).send(`Post Data: ${postData}`)
+}
+
 module.exports = {
   getAllRepos,
-  getReposByName
+  getReposByName,
+  retroRoute
 }

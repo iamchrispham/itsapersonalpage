@@ -1,4 +1,5 @@
 import React from 'react';
+import Retro from './games/retro.jsx';
 
 const Applications = () => {
   return (
@@ -6,6 +7,7 @@ const Applications = () => {
       <span>
         Applications...
       </span>
+      <Retro />
     </div>
   )
 }
