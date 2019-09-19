@@ -3,10 +3,13 @@
 const net = require('net');
 
 const socket = net.createConnection(3000, '96.126.116.118', ()=> {
-    process.stdin.pipe(socket); // writes to Retro server
+    console.log('Connected to RetroMUD');
 });
 
 let line = '';
+socket.on('connect', () => {
+    process.stdin.pipe(socket); // writes to Retro server
+})
 
 socket.on('data', chunk => { // reads data in to STDOUT
     let str = chunk.toString();
@@ -23,3 +26,9 @@ socket.on('data', chunk => { // reads data in to STDOUT
         }
     }
 });
+
+socket.on('end', () => {
+    console.log('Connection closed from RetroMUD');
+    socket.end();
+})
+module.exports = socket;

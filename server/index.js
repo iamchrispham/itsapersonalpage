@@ -5,7 +5,6 @@ const parser = require('body-parser');
 const port = process.env.PORT || 3000;
 const router = require('./router.js');
 const app = express();
-const retro = require('./MUD/index.js');
 
 app.use(parser.json());
 app.use(parser.urlencoded({ extended: true }));

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Home from './home.jsx';
 
 const Body = (props) => {
   const [loading, setLoading] = useState(true);

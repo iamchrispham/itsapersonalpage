@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import socketIO from 'socket.io-client';
 
 const Retro = () => {
   const [loading, setLoading] = useState(true);
   const [postData, setPostData] = useState('');
+  const [socketData, setSocketData] = useState(null);
+  const localhost = 'http://127.0.0.1:3000';
+  // const socket = socketIO(localhost);
   useEffect(() => {
     if (loading) {
       console.log('Loading Retro-Form...')
@@ -11,7 +15,9 @@ const Retro = () => {
     }
 
     return () => {
-
+      if (!loading) {
+        console.log('Unmounting Retro-form...');
+      }
     }
   })
 
