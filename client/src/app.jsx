@@ -35,13 +35,14 @@ function App() {
 
   const renderWeb = () => {
     return (
-      <Header />
+      <Header bodyTransition={bodyTransition} />
     )
   }
   
+
   return <div className="main">
     {dimensions.width < 669 ?  renderMobile() : renderWeb() }
-    <Body width={dimensions.width} height={dimensions.height}/>
+    <Body width={dimensions.width} height={dimensions.height} bodyTransition={bodyTransition} />
     <Footer />
   </div>
 }
